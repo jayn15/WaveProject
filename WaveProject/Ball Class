@@ -1,0 +1,19 @@
+class Bead{
+    //Fields
+    PVector beadPos;
+    PVector beadVel;
+    color beadCol;
+    int radius;
+
+    //Constructor
+    Bead(int x, int y, int r){
+        this.beadPos = new PVetor(x, y);
+        this.radius = r;
+    }
+
+    //Methods
+
+    
+
+
+}
