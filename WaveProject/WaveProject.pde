@@ -8,7 +8,8 @@ Wave newWave;
 void setup(){
   //Size of the screen
   size(800,500);
-  titleScreen();
+  //titleScreen();
+  reset();
 }
 
 
@@ -20,6 +21,7 @@ void titleScreen(){
   textAlign(CENTER);
   text("Wave Simulator!", width/2, height-(height-200));
   //startButton.setVisible(true);
+  //reset();
 }
 
 void reset(){
