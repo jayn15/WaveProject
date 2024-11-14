@@ -21,12 +21,13 @@ class Wave{
         for(Bead b : this.beadWave){
             //Draws each bead
             b.drawBead();
-            i++;
             
             //Draws lines between beads
             if(i < this.beadWave.size() - 1){
               line(b.beadPos.x, b.beadPos.y, this.beadWave.get(i+1).beadPos.x, this.beadWave.get(i+1).beadPos.y);
             }
+            
+            i++;
         }
     }
 
@@ -45,5 +46,5 @@ class Wave{
         this.beadWave.add(b);
         i++;
     }
-    }
+  }
 }
