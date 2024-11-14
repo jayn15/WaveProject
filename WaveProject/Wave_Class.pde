@@ -41,7 +41,7 @@ class Wave{
     void initializeBeads(){
       int i = 0;
       for(Bead b : this.beadWave){
-        b.beadPos = new PVector( (width/this.numBeads) * i + (width/(2*this.numBeads)), height/2);
+        b = new Bead( (width/this.numBeads) * i + (width/(2*this.numBeads)), height/2, 255);
         this.beadWave.add(b);
         i++;
     }
