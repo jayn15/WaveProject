@@ -30,4 +30,11 @@ class Wave{
             b.updateBead(this.amplitude, this.frequency);
        }
     }   
+    
+    void initializeBeads(){
+      for(Bead b : this.beadWave){
+        
+        
+      }
+    }
 }

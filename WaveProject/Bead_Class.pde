@@ -2,12 +2,12 @@ class Bead{
     //Fields
     PVector beadPos;
     PVector beadVel;
-    Color beadCol;
+    color beadCol;
     int radius;
 
     //Constructor
     Bead(int x, int y, color c){
-        this.beadPos = new PVetor(x, y);
+        this.beadPos = new PVector(x, y);
         this.radius = 25; //Sets the radius for every bead to 25. 
         this.beadCol = c;
     }

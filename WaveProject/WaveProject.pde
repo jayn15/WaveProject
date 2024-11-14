@@ -1,3 +1,5 @@
+import g4p_controls.*;
+
 //Main Code
 boolean pause = false;
 
@@ -5,9 +7,6 @@ void setup(){
   //Size  and background colour
   size(800,500);
   background(0);
-  
- 
-  
 }
 
 void draw() {
