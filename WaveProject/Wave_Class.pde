@@ -45,11 +45,11 @@ class Wave{
         this.beadWave.add( new Bead( (width/this.numBeads) * i + (width/(2*this.numBeads)), height/2, 0) );  
     }
     
-    void simpleWave(){
+    //void simpleWave(){
       //X value stays the same
       //Change the y value
       
       
-    }
+    //}
   }
 }
