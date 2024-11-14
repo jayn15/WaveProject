@@ -24,6 +24,7 @@ class Wave{
             
             //Draws lines between beads
             if(i < this.beadWave.size() - 1){
+              stroke(255, 0, 0);
               line(b.beadPos.x, b.beadPos.y, this.beadWave.get(i+1).beadPos.x, this.beadWave.get(i+1).beadPos.y);
             }
             
@@ -41,8 +42,14 @@ class Wave{
     
     void initializeBeads(){
       for(int i = 0; i < this.numBeads; i++){
-        this.beadWave.add( new Bead( (width/this.numBeads) * i + (width/(2*this.numBeads)), height/2, 255) );
-        
+        this.beadWave.add( new Bead( (width/this.numBeads) * i + (width/(2*this.numBeads)), height/2, 0) );  
+    }
+    
+    void simpleWave(){
+      //X value stays the same
+      //Change the y value
+      
+      
     }
   }
 }
