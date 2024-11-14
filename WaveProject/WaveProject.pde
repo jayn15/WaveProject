@@ -1,6 +1,6 @@
 //Main Code
 boolean pause = false;
-//hello
+
 void setup(){
   //Size  and background colour
   size(800,500);
