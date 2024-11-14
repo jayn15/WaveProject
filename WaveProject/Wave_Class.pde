@@ -19,7 +19,7 @@ class Wave{
         //For-loop that goes through every bead in the wave
         for(Bead b : this.beadWave){
             //Draws each bead
-            b.drawBead();
+            b.drawBead();          
         }
     }
 
@@ -29,5 +29,13 @@ class Wave{
             //Updates each bead based on amplitude and frequency
             b.updateBead(this.amplitude, this.frequency);
        }
-    }   
+    }  
+    
+    void initializeBeads(){
+      // Initialize positions and colour of the beads
+      for (Bead b : this.beadWave){
+        this.beadWave.add( new Bead( (width/numBeads)*i + (width/(2*numBeads)), height/2, 255) );
+      }
+      
+    }
 }
