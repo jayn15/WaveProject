@@ -26,7 +26,8 @@ class Wave{
     void updateWave(){
        //For-loop that goes through every bead in the wave
        for(Bead b : this.beadWave){
-        //Updates each bead based on amplitude and frequency
-        b.updateBead(this.amplitude, this.frequency);
+            //Updates each bead based on amplitude and frequency
+            b.updateBead(this.amplitude, this.frequency);
+       }
     }   
 }

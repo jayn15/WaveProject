@@ -8,7 +8,7 @@ class Bead{
     //Constructor
     Bead(int x, int y, color c){
         this.beadPos = new PVetor(x, y);
-        this.radius = 25; //Sets the radius for every ball to 25. 
+        this.radius = 25; //Sets the radius for every bead to 25. 
         this.beadCol = c;
     }
 
