@@ -13,10 +13,11 @@ void setup(){
 
 void draw() {
   //If statement that allows us to pause the program
-  if(pause){ //If pause is true
+  if(!pause){ //If pause is not true(false).
     background(0);  // clear the background each frame
 
     // Draw all the beads in the wave.
+    newWave.initializeBeads();
     newWave.drawWave();
   }
 }

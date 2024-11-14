@@ -26,15 +26,17 @@ class Wave{
     void updateWave(){
        //For-loop that goes through every bead in the wave
        for(Bead b : this.beadWave){
-            //Updates each bead based on amplitude and frequency
-            b.updateBead(this.amplitude, this.frequency);
+          //Updates each bead based on amplitude and frequency
+          b.updateBead(this.amplitude, this.frequency);
        }
     }   
     
     void initializeBeads(){
+      int i = 0;
       for(Bead b : this.beadWave){
-        
-        
-      }
+        b.beadPos = new PVector( (width/this.numBeads) * i + (width/(2*this.numBeads)), height/2);
+        this.beadWave.add(b);
+        i++;
+    }
     }
 }
