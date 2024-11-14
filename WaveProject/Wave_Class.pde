@@ -40,11 +40,9 @@ class Wave{
     }   
     
     void initializeBeads(){
-      int i = 0;
-      for(Bead b : this.beadWave){
-        b = new Bead( (width/this.numBeads) * i + (width/(2*this.numBeads)), height/2, 255);
-        this.beadWave.add(b);
-        i++;
+      for(int i = 0; i < this.numBeads; i++){
+        this.beadWave.add( new Bead( (width/this.numBeads) * i + (width/(2*this.numBeads)), height/2, 255) );
+        
     }
   }
 }
