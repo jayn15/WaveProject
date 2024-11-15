@@ -15,9 +15,9 @@
  */
 
 public void start_button(GButton source, GEvent event) { //_CODE_:startButton:312855:
-  //reset();
+  startButton.setVisible(false);
+  reset();
 } //_CODE_:startButton:312855:
-
 
 
 // Create all the GUI controls. 
@@ -27,7 +27,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  startButton = new GButton(this, 182, 399, 80, 30);
+  startButton = new GButton(this, 350, 350, 100, 50);
   startButton.setText("Start");
   startButton.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   startButton.addEventHandler(this, "start_button");
