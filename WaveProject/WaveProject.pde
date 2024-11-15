@@ -30,7 +30,7 @@ void titleScreen(){
 }
 
 void reset(){
-  newWave = new Wave(100, 10, 1, 15);
+  newWave = new Wave(100, 10, 1, 15); //Amp, frequency, tension, beads
 }
 
 void draw() {
