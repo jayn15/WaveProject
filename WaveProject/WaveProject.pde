@@ -8,26 +8,10 @@ String window = "title";
 Wave newWave; 
 
 void setup(){
-  //Size of the screen
+  //Size of the screen & GUI
   size(800,500);
   createGUI();
-  //titleScreen();
-  //reset();
-  
-  //initialize beads
-  //newWave.initializeBeads();
 }
-
-
-//void titleScreen(){
-//  background(200,240,255);
-//  titleFont = loadFont("Candara-LightItalic-60.vlw");
-//  textFont(titleFont);
-//  fill(50,70,100);
-//  textAlign(CENTER);
-//  text("Wave Simulator!", width/2, height-(height-200));
-//  startButton.setVisible(true);
-//}
 
 void reset(){
   newWave = new Wave(100, 10, 1, 15);
