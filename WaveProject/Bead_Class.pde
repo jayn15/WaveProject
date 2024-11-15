@@ -20,10 +20,15 @@ class Bead{
         circle(this.beadPos.x, this.beadPos.y, this.radius);
     }
     
+    //Bead method that updates the bead position based on amplitude and frequency. 
     void updateBead(float a, float f){
-        //Updates the bead's position by adding the bead's velocity. 
-        //We want it to update the bead's position based on amplitude and frequency. 
-        this.beadPos.add(this.beadVel);
+      //X value stays the same
+      //Change the y value
+      float x = this.beadPos.x + xCounter;
+      
+      //Will need to change this to make it based of string tension forces rather than a sine wave equation. 
+      //What I will need to do is calculate the force of tension in the rope between two beads, then use stringTension as the max ceiling. 
+      this.beadPos.y = -a * sin(1/f * x) + height/2; 
     }
 
 }

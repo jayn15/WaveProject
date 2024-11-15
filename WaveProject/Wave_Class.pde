@@ -3,12 +3,14 @@ class Wave{
     ArrayList<Bead> beadWave;
     float amplitude;
     float frequency;
+    float stringTension;
     int numBeads;
 
     //Constructor
-    Wave(float a, float f, int b){
+    Wave(float a, float f, float t,int b){
         this.amplitude = a;
         this.frequency = f;
+        this.stringTension = t;
         this.numBeads = b;
         //Create a new arraylist that keeps track of the beads within the wave. 
         this.beadWave = new ArrayList<Bead>();
@@ -23,12 +25,13 @@ class Wave{
             b.drawBead();
             
             //Draws lines between beads
-            if(i < this.beadWave.size() - 1){
+            if(i < this.beadWave.size()-1){
               stroke(255, 0, 0);
               line(b.beadPos.x, b.beadPos.y, this.beadWave.get(i+1).beadPos.x, this.beadWave.get(i+1).beadPos.y);
             }
             
             i++;
+            xCounter += 0.01;
         }
     }
 
@@ -43,13 +46,9 @@ class Wave{
     void initializeBeads(){
       for(int i = 0; i < this.numBeads; i++){
         this.beadWave.add( new Bead( (width/this.numBeads) * i + (width/(2*this.numBeads)), height/2, 0) );  
+      }
     }
     
-    //void simpleWave(){
-      //X value stays the same
-      //Change the y value
-      
-      
-    //}
-  }
+    
+  
 }

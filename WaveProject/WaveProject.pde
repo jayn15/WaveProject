@@ -2,14 +2,19 @@ import g4p_controls.*;
 
 //Main Code
 boolean pause = false;
+float xCounter = 0;
 PFont titleFont;
 Wave newWave; 
 
 void setup(){
+  reset();
   //Size of the screen
   size(800,500);
   //titleScreen();
   reset();
+  
+  //initialize beads
+  newWave.initializeBeads();
 }
 
 
@@ -25,7 +30,7 @@ void titleScreen(){
 }
 
 void reset(){
-  newWave = new Wave(1, 1, 15);
+  newWave = new Wave(100, 10, 1, 15);
 }
 
 void draw() {
@@ -34,7 +39,7 @@ void draw() {
     background(255);  // clear the background each frame
 
     // Draw all the beads in the wave.
-    newWave.initializeBeads();
+    newWave.updateWave();
     newWave.drawWave();
   }
 }
