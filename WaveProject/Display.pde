@@ -10,10 +10,12 @@ void displayScreen(){
   startButton.setVisible(true);
   pauseButton.setVisible(false);
   playButton.setVisible(false);
+  Reset.setVisible(false);
   }
   
   
   if(window.equals("play")){
+    Reset.setVisible(true);
     //If statement that allows us to pause the program
   if(!pause){ //If pause is not true(false).
     pauseButton.setVisible(true);

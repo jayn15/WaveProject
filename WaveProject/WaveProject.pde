@@ -4,42 +4,21 @@ import g4p_controls.*;
 boolean pause = false;
 float xCounter = 0;
 PFont titleFont;
+String window = "title";
 Wave newWave; 
 
 void setup(){
-  reset();
-  //Size of the screen
+  //Size of the screen & GUI
   size(800,500);
-  //titleScreen();
-  reset();
-  
-  //initialize beads
-  newWave.initializeBeads();
-}
-
-
-void titleScreen(){
-  background(200,240,255);
-  titleFont = loadFont("Candara-LightItalic-60.vlw");
-  textFont(titleFont);
-  fill(50,70,100);
-  textAlign(CENTER);
-  text("Wave Simulator!", width/2, height-(height-200));
-  //startButton.setVisible(true);
-  //reset();
+  createGUI();
+  newWave = new Wave(50, 10, 1, 15); //Amp, frequency, tension, beads
 }
 
 void reset(){
-  newWave = new Wave(100, 10, 1, 15); //Amp, frequency, tension, beads
+  newWave.initializeBeads();
+  window = "play";
 }
 
 void draw() {
-  //If statement that allows us to pause the program
-  if(!pause){ //If pause is not true(false).
-    background(255);  // clear the background each frame
-
-    // Draw all the beads in the wave.
-    newWave.updateWave();
-    newWave.drawWave();
-  }
+  displayScreen();
 }
