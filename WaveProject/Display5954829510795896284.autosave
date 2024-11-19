@@ -24,4 +24,6 @@ void displayScreen(){
       newWave.drawWave();
     }
   }
+  
+  
 }

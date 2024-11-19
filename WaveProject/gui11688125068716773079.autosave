@@ -14,6 +14,7 @@
  * =========================================================
  */
 
+
 synchronized public void win_draw2(PApplet appc, GWinData data) { //_CODE_:window2:405128:
   appc.background(230);
 } //_CODE_:window2:405128:
@@ -131,7 +132,7 @@ public void createGUI(){
   togGroup2.addControl(selectAuto);
   selectAuto.setSelected(true);
   togGroup2.addControl(selectManual);
-  resetFunction = new GButton(window2, 210, 220, 80, 30);
+  resetFunction = new GButton(window2, 220, 210, 80, 30);
   resetFunction.setText("Reset");
   resetFunction.addEventHandler(this, "resetFunction_click");
   window2.loop();
