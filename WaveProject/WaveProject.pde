@@ -26,11 +26,7 @@ void setup(){
   endType = "No End";
   //Size of the screen & GUI
   size(800,500);
-  //titleScreen();
-  reset();
   
-  //initialize beads
-  newWave.initializeBeads();
   createGUI();
   newWave = new Wave(amplitude, frequency, tension, damping, numBeads, startType, endType); //Amp, frequency, tension, beads
   centerLine = height/2;
