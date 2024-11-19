@@ -15,7 +15,8 @@
  */
 
 public void start_button(GButton source, GEvent event) { //_CODE_:startButton:312855:
-  //reset();
+  startButton.setVisible(false);
+  reset();
 } //_CODE_:startButton:312855:
 
 public void amplitude(GCustomSlider source, GEvent event) { //_CODE_:changeAmp:534109:
