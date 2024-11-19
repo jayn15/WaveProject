@@ -16,9 +16,15 @@ int numBeads;
 String startType;
 String endType;
 
-
 void setup(){
-  //Size of the screen
+  amplitude = 100;
+  frequency = 5;
+  tension = 10;
+  damping = 0;
+  numBeads =  50;
+  startType = "Oscillation";
+  endType = "No End";
+  //Size of the screen & GUI
   size(800,500);
   //titleScreen();
   reset();
@@ -26,22 +32,14 @@ void setup(){
   //initialize beads
   newWave.initializeBeads();
   createGUI();
+  newWave = new Wave(amplitude, frequency, tension, damping, numBeads, startType, endType); //Amp, frequency, tension, beads
+  centerLine = height/2;
 }
 
 
-
 void reset(){
-  amplitude = 200; //Amplitude of the wave
-  frequency = 5; //Frequency
-  tension = 10; //String tension factor
-  damping = 0; //String damping factor: 0-10
-  numBeads = 50; //Number of beads on the string
-  startType = "Oscillation"; //Users can choose between: Oscillation, Pulse, Manuel
-  endType = "No End"; //Users can choose between: Fixed, Loose, No End
-  //Creates new wave with parameters (amplitude, frequency, tension, damping, number of beads, start type, end type)
-  frameRate(60);
-  centerLine = height/2;
   newWave.initializeBeads();
+  frameRate(60);
   window = "play";
 }
 

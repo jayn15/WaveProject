@@ -54,6 +54,9 @@ public void resetFunction_click(GButton source, GEvent event) { //_CODE_:resetFu
   println("resetFunction - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:resetFunction:296631:
 
+public void start_button(GButton source, GEvent event) { //_CODE_:startButton:312855:
+  reset();
+} //_CODE_:startButton:312855:
 
 
 // Create all the GUI controls. 
@@ -135,6 +138,10 @@ public void createGUI(){
   resetFunction.setText("Reset");
   resetFunction.addEventHandler(this, "resetFunction_click");
   window2.loop();
+  startButton = new GButton(this, 350, 350, 100, 50);
+  startButton.setText("Start");
+  startButton.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  startButton.addEventHandler(this, "start_button");
 }
 
 // Variable declarations 
@@ -155,3 +162,4 @@ GToggleGroup togGroup2;
 GOption selectAuto; 
 GOption selectManual; 
 GButton resetFunction; 
+GButton startButton; 
