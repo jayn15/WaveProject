@@ -58,9 +58,17 @@ public void resetFunction_click(GButton source, GEvent event) { //_CODE_:resetFu
   println("resetFunction - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:resetFunction:296631:
 
-public void option1_clicked1(GOption source, GEvent event) { //_CODE_:option1:897153:
+public void selectFixed(GOption source, GEvent event) { //_CODE_:Fixed:897153:
   println("option1 - GOption >> GEvent." + event + " @ " + millis());
-} //_CODE_:option1:897153:
+} //_CODE_:Fixed:897153:
+
+public void selectLoose(GOption source, GEvent event) { //_CODE_:Loose:524193:
+  println("Loose - GOption >> GEvent." + event + " @ " + millis());
+} //_CODE_:Loose:524193:
+
+public void selectNoEnd(GOption source, GEvent event) { //_CODE_:noEnd:938131:
+  println("noEnd - GOption >> GEvent." + event + " @ " + millis());
+} //_CODE_:noEnd:938131:
 
 
 
@@ -142,17 +150,29 @@ public void createGUI(){
   togGroup2.addControl(selectAuto);
   selectAuto.setSelected(true);
   togGroup2.addControl(selectManual);
-  resetFunction = new GButton(window2, 210, 230, 80, 30);
+  resetFunction = new GButton(window2, 220, 260, 80, 30);
   resetFunction.setText("Reset");
   resetFunction.addEventHandler(this, "resetFunction_click");
   togGroup3 = new GToggleGroup();
-  option1 = new GOption(window2, 140, 165, 120, 20);
-  option1.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
-  option1.setText("option text");
-  option1.setOpaque(false);
-  option1.addEventHandler(this, "option1_clicked1");
-  togGroup3.addControl(option1);
-  option1.setSelected(true);
+  Fixed = new GOption(window2, 200, 150, 120, 20);
+  Fixed.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  Fixed.setText("Fixed End");
+  Fixed.setOpaque(false);
+  Fixed.addEventHandler(this, "selectFixed");
+  Loose = new GOption(window2, 200, 170, 120, 20);
+  Loose.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  Loose.setText("Loose End");
+  Loose.setOpaque(false);
+  Loose.addEventHandler(this, "selectLoose");
+  noEnd = new GOption(window2, 200, 190, 120, 20);
+  noEnd.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  noEnd.setText("No End");
+  noEnd.setOpaque(false);
+  noEnd.addEventHandler(this, "selectNoEnd");
+  togGroup3.addControl(Fixed);
+  Fixed.setSelected(true);
+  togGroup3.addControl(Loose);
+  togGroup3.addControl(noEnd);
   window2.loop();
 }
 
@@ -176,4 +196,6 @@ GOption selectAuto;
 GOption selectManual; 
 GButton resetFunction; 
 GToggleGroup togGroup3; 
-GOption option1; 
+GOption Fixed; 
+GOption Loose; 
+GOption noEnd; 
