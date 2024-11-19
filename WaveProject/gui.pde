@@ -58,6 +58,10 @@ public void resetFunction_click(GButton source, GEvent event) { //_CODE_:resetFu
   println("resetFunction - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:resetFunction:296631:
 
+public void option1_clicked1(GOption source, GEvent event) { //_CODE_:option1:897153:
+  println("option1 - GOption >> GEvent." + event + " @ " + millis());
+} //_CODE_:option1:897153:
+
 
 
 // Create all the GUI controls. 
@@ -138,9 +142,17 @@ public void createGUI(){
   togGroup2.addControl(selectAuto);
   selectAuto.setSelected(true);
   togGroup2.addControl(selectManual);
-  resetFunction = new GButton(window2, 210, 220, 80, 30);
+  resetFunction = new GButton(window2, 210, 230, 80, 30);
   resetFunction.setText("Reset");
   resetFunction.addEventHandler(this, "resetFunction_click");
+  togGroup3 = new GToggleGroup();
+  option1 = new GOption(window2, 140, 165, 120, 20);
+  option1.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  option1.setText("option text");
+  option1.setOpaque(false);
+  option1.addEventHandler(this, "option1_clicked1");
+  togGroup3.addControl(option1);
+  option1.setSelected(true);
   window2.loop();
 }
 
@@ -163,3 +175,5 @@ GToggleGroup togGroup2;
 GOption selectAuto; 
 GOption selectManual; 
 GButton resetFunction; 
+GToggleGroup togGroup3; 
+GOption option1; 
