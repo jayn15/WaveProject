@@ -15,6 +15,7 @@ void setup(){
   
   //initialize beads
   newWave.initializeBeads();
+  createGUI();
 }
 
 
