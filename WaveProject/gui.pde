@@ -15,6 +15,7 @@
  */
 
 public void start_button(GButton source, GEvent event) { //_CODE_:startButton:707938:
+  valueChanging();
   reset();
 } //_CODE_:startButton:707938:
 
@@ -23,51 +24,58 @@ synchronized public void win_draw2(PApplet appc, GWinData data) { //_CODE_:windo
 } //_CODE_:window2:405128:
 
 public void amplitude_change(GCustomSlider source, GEvent event) { //_CODE_:changeAmp:771614:
-  println("changeAmp - GCustomSlider >> GEvent." + event + " @ " + millis());
+newWave.amplitude = changeAmp.getValueI();
+  //println("changeAmp - GCustomSlider >> GEvent." + event + " @ " + millis());
 } //_CODE_:changeAmp:771614:
 
 public void fequency_change(GCustomSlider source, GEvent event) { //_CODE_:changeFeq:283032:
-  println("changeFeq - GCustomSlider >> GEvent." + event + " @ " + millis());
+  newWave.frequency = changeFeq.getValueF();
+  //println("changeFeq - GCustomSlider >> GEvent." + event + " @ " + millis());
 } //_CODE_:changeFeq:283032:
 
 public void tension_change(GCustomSlider source, GEvent event) { //_CODE_:changeTen:235273:
-  println("changeTen - GCustomSlider >> GEvent." + event + " @ " + millis());
+  newWave.stringTension = changeTen.getValueI();
+  //println("changeTen - GCustomSlider >> GEvent." + event + " @ " + millis());
 } //_CODE_:changeTen:235273:
 
 public void damping_change(GCustomSlider source, GEvent event) { //_CODE_:changeDam:585003:
-  println("changeDam - GCustomSlider >> GEvent." + event + " @ " + millis());
+  newWave.stringDamping = changeDam.getValueI();
+  //println("changeDam - GCustomSlider >> GEvent." + event + " @ " + millis());
 } //_CODE_:changeDam:585003:
 
 public void Normal_clicked(GOption source, GEvent event) { //_CODE_:speedNorm:317794:
-  println("speedNorm - GOption >> GEvent." + event + " @ " + millis());
+  frameRate(60);
+  //println("speedNorm - GOption >> GEvent." + event + " @ " + millis());
 } //_CODE_:speedNorm:317794:
 
 public void Slow_clicked(GOption source, GEvent event) { //_CODE_:speedSlow:500740:
-  println("speedSlow - GOption >> GEvent." + event + " @ " + millis());
+  frameRate(15);
+  //println("speedSlow - GOption >> GEvent." + event + " @ " + millis());
 } //_CODE_:speedSlow:500740:
 
 public void Auto_clicked(GOption source, GEvent event) { //_CODE_:selectAuto:691945:
-  println("selectAuto - GOption >> GEvent." + event + " @ " + millis());
+  //println("selectAuto - GOption >> GEvent." + event + " @ " + millis());
 } //_CODE_:selectAuto:691945:
 
 public void Manual_clicked(GOption source, GEvent event) { //_CODE_:selectManual:273293:
-  println("selectManual - GOption >> GEvent." + event + " @ " + millis());
+  //println("selectManual - GOption >> GEvent." + event + " @ " + millis());
 } //_CODE_:selectManual:273293:
 
 public void resetFunction_click(GButton source, GEvent event) { //_CODE_:resetFunction:296631:
-  println("resetFunction - GButton >> GEvent." + event + " @ " + millis());
+  reset();
+  //println("resetFunction - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:resetFunction:296631:
 
 public void selectFixed(GOption source, GEvent event) { //_CODE_:Fixed:897153:
-  println("option1 - GOption >> GEvent." + event + " @ " + millis());
+  //println("option1 - GOption >> GEvent." + event + " @ " + millis());
 } //_CODE_:Fixed:897153:
 
 public void selectLoose(GOption source, GEvent event) { //_CODE_:Loose:524193:
-  println("Loose - GOption >> GEvent." + event + " @ " + millis());
+  //println("Loose - GOption >> GEvent." + event + " @ " + millis());
 } //_CODE_:Loose:524193:
 
 public void selectNoEnd(GOption source, GEvent event) { //_CODE_:noEnd:938131:
-  println("noEnd - GOption >> GEvent." + event + " @ " + millis());
+  //println("noEnd - GOption >> GEvent." + event + " @ " + millis());
 } //_CODE_:noEnd:938131:
 
 

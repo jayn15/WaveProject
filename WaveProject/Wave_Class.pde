@@ -12,8 +12,8 @@ class Wave{
 
   //Constructor
   Wave(float a, float f, float t, float d, int b, String s, String e){
-      this.amplitude = a;
-      this.frequency = f;
+      this.amplitude = changeAmp.getValueI();
+      this.frequency = changeFeq.getValueI();
       this.stringTension = t;
       this.stringDamping = d;
       this.numBeads = b;
