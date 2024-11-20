@@ -26,10 +26,12 @@ class Bead{
   }
   
   //Bead method that updates the bead position based on amplitude and frequency. 
-  void updateBeadPos(float a, float f, float yAcc, String ends){
+  void updateBeadPos(float a, float f, String ends){
     //If statements for if the selected bead is the first bead
     if(ends == "Oscillation"){
-      this.beadPos.y = -a * sin(1/f * xCounter) + centerLine;
+      this.beadPos.y = a * sin(0.05*f * xCounter) + centerLine;
+      this.beadVel.y = a * cos(0.05*f * xCounter) + centerLine;
+      
     }
     else if(ends == "Pulse"){
       
@@ -43,8 +45,6 @@ class Bead{
       //Nothing happens because the end bead is in a fixed position and does not require an update. 
     }
     else if(ends == "Loose"){ //Very similar to the else statement, however, this yAcc is different: It doesn't include the second force of tension(the tension force induced by the next ball in the chain) in the acceleration calculations. 
-      //Sets y acceleration
-      this.beadAcc.y = yAcc;
       //Change ySpeed using acceleration
       this.beadVel.y += this.beadAcc.y; 
       //Change y position using y speed
@@ -62,8 +62,6 @@ class Bead{
     else{ //Every other bead in the middle of the string, also applies to no end type because it acts like a bead in the middle of the string
       //X value stays the same
       //Change the y value
-      //Sets y acceleration
-      this.beadAcc.y = yAcc;
       //Change ySpeed using acceleration
       this.beadVel.y += this.beadAcc.y; 
       //Change y position using y speed

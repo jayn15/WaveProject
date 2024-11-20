@@ -51,17 +51,17 @@ class Wave{
        //Updates each bead based on amplitude, frequency, acceleration and start/end types
        //First bead
        if(i == 0){
-         b.updateBeadPos(this.amplitude, this.frequency, 0, this.startType);  
+         b.updateBeadPos(this.amplitude, this.frequency, this.startType);  
        }
        //Last bead
        else if(i == this.beadWave.size()-2){ //The reason it is -2 is because it refers to the second last ball in the string. It is really the last ball that the user can see, but there is an additional ball to facilitate the process for the no end endType. 
-         float yAcc = calculateForces( b, this.beadWave.get(i-1), b );
-         b.updateBeadPos(this.amplitude, this.frequency, yAcc, this.endType);            
+         calculateForces( b, this.beadWave.get(i-1), b );
+         b.updateBeadPos(this.amplitude, this.frequency, this.endType);            
        }
        //All the beads in between
        else if(i>0 && i<this.beadWave.size()-2){ //Beads in the middle of the string
-         float yAcc = calculateForces(b, this.beadWave.get(i-1), this.beadWave.get(i+1) );
-         b.updateBeadPos(this.amplitude, this.frequency, yAcc, "Middle Bead");    
+         calculateForces(b, this.beadWave.get(i-1), this.beadWave.get(i+1) );
+         b.updateBeadPos(this.amplitude, this.frequency, "Middle Bead");    
        }
        xCounter += 0.01;
        i++;          
@@ -77,7 +77,7 @@ class Wave{
     }
   }
   
-  float calculateForces(Bead selected, Bead other, Bead next){
+  void calculateForces(Bead selected, Bead other, Bead next){
     //other bead is the bead that come before.
     //this bead is the current bead. 
     
@@ -159,7 +159,11 @@ class Wave{
       }
     }
     float yAcceleration = -(1.5*FTy + FTy2 + Fd) / selected.mass;
-    return yAcceleration; 
+    selected.beadAcc.y = yAcceleration;
     
+    if(PVector.dist(other.beadPos, selected.beadPos) > this.stringTension * width/this.numBeads){
+      selected.beadVel.y = other.beadVel.y;
+      selected.beadAcc.y = 0;
+    }
   }
 }
