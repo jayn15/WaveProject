@@ -24,7 +24,7 @@ synchronized public void win_draw2(PApplet appc, GWinData data) { //_CODE_:windo
 } //_CODE_:window2:405128:
 
 public void amplitude_change(GCustomSlider source, GEvent event) { //_CODE_:changeAmp:771614:
-newWave.amplitude = changeAmp.getValueI();
+  newWave.amplitude = changeAmp.getValueI();
   //println("changeAmp - GCustomSlider >> GEvent." + event + " @ " + millis());
 } //_CODE_:changeAmp:771614:
 
@@ -62,6 +62,7 @@ public void Manual_clicked(GOption source, GEvent event) { //_CODE_:selectManual
 } //_CODE_:selectManual:273293:
 
 public void resetFunction_click(GButton source, GEvent event) { //_CODE_:resetFunction:296631:
+  valueChanging();
   reset();
   //println("resetFunction - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:resetFunction:296631:
