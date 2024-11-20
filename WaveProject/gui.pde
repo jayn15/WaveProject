@@ -68,15 +68,15 @@ public void resetFunction_click(GButton source, GEvent event) { //_CODE_:resetFu
 } //_CODE_:resetFunction:296631:
 
 public void selectFixed(GOption source, GEvent event) { //_CODE_:Fixed:897153:
-  //println("option1 - GOption >> GEvent." + event + " @ " + millis());
+  newWave.endType = "Fixed";
 } //_CODE_:Fixed:897153:
 
 public void selectLoose(GOption source, GEvent event) { //_CODE_:Loose:524193:
-  //println("Loose - GOption >> GEvent." + event + " @ " + millis());
+  newWave.endType = "Loose";
 } //_CODE_:Loose:524193:
 
 public void selectNoEnd(GOption source, GEvent event) { //_CODE_:noEnd:938131:
-  //println("noEnd - GOption >> GEvent." + event + " @ " + millis());
+  newWave.endType = "No End";
 } //_CODE_:noEnd:938131:
 
 
@@ -112,17 +112,17 @@ public void createGUI(){
   label8.setText("Damping");
   label8.setOpaque(false);
   changeAmp = new GCustomSlider(window2, 20, 40, 100, 40, "grey_blue");
-  changeAmp.setLimits(100.0, 0.0, 200.0);
+  changeAmp.setLimits(100.0, 1.0, 200.0);
   changeAmp.setNumberFormat(G4P.DECIMAL, 2);
   changeAmp.setOpaque(false);
   changeAmp.addEventHandler(this, "amplitude_change");
   changeFeq = new GCustomSlider(window2, 20, 120, 100, 40, "grey_blue");
-  changeFeq.setLimits(5.0, 0.0, 10.0);
+  changeFeq.setLimits(5.0, 1.0, 10.0);
   changeFeq.setNumberFormat(G4P.DECIMAL, 2);
   changeFeq.setOpaque(false);
   changeFeq.addEventHandler(this, "fequency_change");
   changeTen = new GCustomSlider(window2, 20, 200, 100, 40, "grey_blue");
-  changeTen.setLimits(10.0, 0.0, 20.0);
+  changeTen.setLimits(10.0, 1.0, 20.0);
   changeTen.setNumberFormat(G4P.DECIMAL, 2);
   changeTen.setOpaque(false);
   changeTen.addEventHandler(this, "tension_change");
