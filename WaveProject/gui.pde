@@ -67,15 +67,15 @@ public void resetFunction_click(GButton source, GEvent event) { //_CODE_:resetFu
 } //_CODE_:resetFunction:296631:
 
 public void selectFixed(GOption source, GEvent event) { //_CODE_:Fixed:897153:
-  //println("option1 - GOption >> GEvent." + event + " @ " + millis());
+  newWave.endType = "Fixed";
 } //_CODE_:Fixed:897153:
 
 public void selectLoose(GOption source, GEvent event) { //_CODE_:Loose:524193:
-  //println("Loose - GOption >> GEvent." + event + " @ " + millis());
+  newWave.endType = "Loose";
 } //_CODE_:Loose:524193:
 
 public void selectNoEnd(GOption source, GEvent event) { //_CODE_:noEnd:938131:
-  //println("noEnd - GOption >> GEvent." + event + " @ " + millis());
+  newWave.endType = "No End";
 } //_CODE_:noEnd:938131:
 
 
