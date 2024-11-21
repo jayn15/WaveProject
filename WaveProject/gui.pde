@@ -63,7 +63,7 @@ public void Manual_clicked(GOption source, GEvent event) { //_CODE_:selectManual
 
 public void resetFunction_click(GButton source, GEvent event) { //_CODE_:resetFunction:296631:
   valueChanging();
-  reset();
+  //reset();
   //println("resetFunction - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:resetFunction:296631:
 
