@@ -2,6 +2,7 @@ import g4p_controls.*;
 
 //Main Code
 boolean pause = false;
+boolean realisticMode = false;
 float xCounter = 0;
 float centerLine;
 PFont titleFont;
@@ -10,7 +11,7 @@ String window = "title";
 
 float amplitude;
 float frequency;
-float tension;
+int tension;
 float damping;
 int numBeads;
 String startType;
@@ -41,7 +42,7 @@ void reset(){
   
   newWave.amplitude = 100;
   newWave.frequency = 5;
-  newWave.stringTension = 10;
+  newWave.stringTension = 2;
   newWave.stringDamping = 0;
   
 }

@@ -122,7 +122,7 @@ public void createGUI(){
   changeFeq.setOpaque(false);
   changeFeq.addEventHandler(this, "fequency_change");
   changeTen = new GCustomSlider(window2, 20, 200, 100, 40, "grey_blue");
-  changeTen.setLimits(10.0, 1.0, 20.0);
+  changeTen.setLimits(0.0, 1.0, 9.0);
   changeTen.setNumberFormat(G4P.DECIMAL, 2);
   changeTen.setOpaque(false);
   changeTen.addEventHandler(this, "tension_change");
