@@ -67,23 +67,27 @@ class Wave{
       }
       //Last bead
       else if(i == this.beadWave.size()-2){ //The reason it is -2 is because it refers to the second last ball in the string. It is really the last ball that the user can see, but there is an additional ball to facilitate the process for the no end endType. 
-        if(this.endType.equals("No End")){
-          followBead(b, this.beadWave.get(i-1));    
-        }
-        b.updateBeadPos(this.amplitude, this.frequency, this.endType); 
         if(realisticMode){
           calculateForces( b, this.beadWave.get(i-1), b );
         }
+        else{
+          if(this.endType.equals("No End")){
+            followBead(b, this.beadWave.get(i-1));    
+          }
+        }
+        b.updateBeadPos(this.amplitude, this.frequency, this.endType); 
+        
 
       }
       //All the beads in between
       else if(i>0 && i<this.beadWave.size()-2){ //Beads in the middle of the string
-        followBead(b, this.beadWave.get(i-1));
-        b.updateBeadPos(this.amplitude, this.frequency, "Middle Bead");
-        
         if(realisticMode){
           calculateForces( b, this.beadWave.get(i-1), b );
         }
+        else{
+          followBead(b, this.beadWave.get(i-1));
+        }
+        b.updateBeadPos(this.amplitude, this.frequency, "Middle Bead");  
       }
       xCounter += 0.01;
       i++;          
