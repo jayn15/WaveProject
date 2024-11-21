@@ -3,7 +3,7 @@ class Wave{
   ArrayList<Bead> beadWave;
   float amplitude;
   float frequency;
-  float stringTension;
+  int stringTension;
   float stringDamping;
   int numBeads;
   String startType;
@@ -11,7 +11,7 @@ class Wave{
   float yAcceleration;
 
   //Constructor
-  Wave(float a, float f, float t, float d, int b, String s, String e){
+  Wave(float a, float f, int t, float d, int b, String s, String e){
       this.amplitude = changeAmp.getValueI();
       this.frequency = changeFeq.getValueI();
       this.stringTension = t;
@@ -46,26 +46,48 @@ class Wave{
 
   void updateWave(){
     int i = 0;
-     //For-loop that goes through every bead in the wave
-     for(Bead b : this.beadWave){         
-       //Updates each bead based on amplitude, frequency, acceleration and start/end types
-       //First bead
-       if(i == 0){
-         b.updateBeadPos(this.amplitude, this.frequency, this.startType);  
-       }
-       //Last bead
-       else if(i == this.beadWave.size()-2){ //The reason it is -2 is because it refers to the second last ball in the string. It is really the last ball that the user can see, but there is an additional ball to facilitate the process for the no end endType. 
-         calculateForces( b, this.beadWave.get(i-1), b );
-         b.updateBeadPos(this.amplitude, this.frequency, this.endType);            
-       }
-       //All the beads in between
-       else if(i>0 && i<this.beadWave.size()-2){ //Beads in the middle of the string
-         calculateForces(b, this.beadWave.get(i-1), this.beadWave.get(i+1) );
-         b.updateBeadPos(this.amplitude, this.frequency, "Middle Bead");    
-       }
-       xCounter += 0.01;
-       i++;          
-     }
+    //For-loop that goes through every bead in the wave
+    for(Bead b : this.beadWave){ 
+      //Copies all past y values into a different array to hold the new "past values"
+      b.pastYValues = b.newYValues;
+      
+      //Assigning current y value to the first spot in pastYValues. 
+      b.pastYValues[0] = b.beadPos.y;
+      
+      //Filling in the rest of the array with the values from the new "past values" array. 
+      for(int j = 1; j < b.pastYValues.length - 1; j++){
+        b.pastYValues[j] = b.newYValues[j-1];
+      }
+      
+      
+      //Updates each bead based on amplitude, frequency, acceleration and start/end types
+      //First bead
+      if(i == 0){
+        b.updateBeadPos(this.amplitude, this.frequency, this.startType);  
+      }
+      //Last bead
+      else if(i == this.beadWave.size()-2){ //The reason it is -2 is because it refers to the second last ball in the string. It is really the last ball that the user can see, but there is an additional ball to facilitate the process for the no end endType. 
+        if(this.endType.equals("No End")){
+          followBead(b, this.beadWave.get(i-1));    
+        }
+        b.updateBeadPos(this.amplitude, this.frequency, this.endType); 
+        if(realisticMode){
+          calculateForces( b, this.beadWave.get(i-1), b );
+        }
+
+      }
+      //All the beads in between
+      else if(i>0 && i<this.beadWave.size()-2){ //Beads in the middle of the string
+        followBead(b, this.beadWave.get(i-1));
+        b.updateBeadPos(this.amplitude, this.frequency, "Middle Bead");
+        
+        if(realisticMode){
+          calculateForces( b, this.beadWave.get(i-1), b );
+        }
+      }
+      xCounter += 0.01;
+      i++;          
+    }
   }   
   
   void initializeBeads(){
@@ -77,6 +99,17 @@ class Wave{
     }
   }
   
+  
+  void followBead(Bead selected, Bead other){
+    if(other.pastYValues[this.stringTension] < centerLine){ //If previous bead was above the center line
+      selected.beadPos.y = other.pastYValues[this.stringTension] + this.stringDamping;
+    }
+    else if(other.pastYValues[this.stringTension] > centerLine){
+      selected.beadPos.y = other.pastYValues[this.stringTension] - this.stringDamping;      
+    }
+  }
+  
+  //Whole other force calculation that did not seem to work. So we had to abort this. 
   void calculateForces(Bead selected, Bead other, Bead next){
     //other bead is the bead that come before.
     //this bead is the current bead. 
