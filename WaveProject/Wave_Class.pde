@@ -46,29 +46,16 @@ class Wave{
   void updateWave(){
     int i = 0;
     //For-loop that goes through every bead in the wave
-    for(Bead b : this.beadWave){ 
+    for(Bead b : this.beadWave){       
+      updatePastBeadArray(b);
       
-      //Copies all past y values into a different array to hold the new "past values"
-      
-      //Assigning current y value to the first spot in pastYValues. 
-      b.newYValues[0] = b.beadPos.y;
-      
-      //Filling in the rest of the array with the values from the new "past values" array. 
-      for(int j = 1; j < b.pastYValues.length - 1; j++){
-        b.newYValues[j] = b.pastYValues[j-1];
-      }
-      
-      b.pastYValues = b.newYValues;
-
-      
-      
-      //Updates each bead based on amplitude, frequency, acceleration and start/end types
+      //Updates each bead based on amplitude, frequency and start/end types
       //First bead
       if(i == 0){
         b.updateBeadPos(this.amplitude, this.frequency, this.startType);  
       }
       //Last bead
-      else if(i == this.beadWave.size()-1){  
+      else if(i == this.beadWave.size()){  
         
         if(this.endType.equals("No End")){
           followBead(b, this.beadWave.get(i-1));    
@@ -78,7 +65,7 @@ class Wave{
         
       }
       //All the beads in between
-      else if(i < this.beadWave.size()-1){ //Beads in the middle of the string
+      else if(i < this.beadWave.size()){ //Beads in the middle of the string
         
         followBead(b, this.beadWave.get(i-1));
 
@@ -98,16 +85,32 @@ class Wave{
   }
 
   void followBead(Bead selected, Bead other){
-    //println(other.pastYValues[60*this.stringTension]);
-    println();
-    
-    if(other.pastYValues[this.stringTension * 60] < centerLine){ //If previous bead was above the center line
-      selected.beadPos.y = other.pastYValues[60*this.stringTension] + this.stringDamping;
+    if(other.pastYValues[this.stringTension] < centerLine){ //If previous bead was above the center line
+      selected.beadPos.y = other.pastYValues[this.stringTension] + this.stringDamping;
     }
-    else if(other.pastYValues[this.stringTension * 60] > centerLine){
-      selected.beadPos.y = other.pastYValues[60*this.stringTension] - this.stringDamping;   
+    else if(other.pastYValues[this.stringTension] > centerLine){
+      selected.beadPos.y = other.pastYValues[this.stringTension] - this.stringDamping;   
+    }
+    else{
+      selected.beadPos.y = other.pastYValues[this.stringTension];
+    }
+  }
+  
+  void updatePastBeadArray(Bead selected){
+    //Assigning current y value to the first spot in newYValues. 
+    selected.newYValues[0] = selected.beadPos.y;
+    
+    //Filling in the rest of the array with the values from the new "past values" array. 
+    for(int j = 1; j < selected.maxRemVals; j++){
+      selected.newYValues[j] = selected.pastYValues[j-1];
+    }
+    
+    //Moves all the "new" past y values back into the original array
+    for(int i = 0; i < selected.maxRemVals; i++){
+      selected.pastYValues[i] = selected.newYValues[i];
     }
   }
 }
+  
   
   
