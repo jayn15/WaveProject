@@ -66,6 +66,7 @@ void reset(){
   noEnd.setSelected(true);
   newWave.endType = "No End";
   
+  //Resets the speed of the program.
   speedNorm.setSelected(true);
   frameRate(60);
 }
