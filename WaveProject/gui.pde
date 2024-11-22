@@ -58,13 +58,11 @@ public void Manual_clicked(GOption source, GEvent event) { //_CODE_:selectManual
 } //_CODE_:selectManual:273293:
 
 public void resetFunction_click(GButton source, GEvent event) { //_CODE_:resetFunction:296631:
-  //valueChanging();
   reset();
 } //_CODE_:resetFunction:296631:
 
 public void selectFixed(GOption source, GEvent event) { //_CODE_:Fixed:897153:
   newWave.endType = "Fixed";
-  fixedValue = newWave.beadWave.get(newWave.beadWave.size()-1).beadPos.y;
   if(amplitudeCounter){
     amplitudeCounter = false;
     newWave.amplitude /= 2;
