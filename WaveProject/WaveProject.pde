@@ -1,29 +1,29 @@
 import g4p_controls.*;
 
 //Main Code
-boolean pause = false;
-boolean amplitudeCounter = false;
-float xCounter = 0;
-float centerLine;
-PFont titleFont;
-Wave newWave;
-String window = "title";
+boolean pause = false; //Pause variable used by the pause/play button
+boolean amplitudeCounter = false; //Boolean variable that is used to prevent the amplitude from stacking. 
+float xCounter = 0; //Increment variable that allows the first bead to oscillate.
+float centerLine; //Variable that represents the center line, halfway between the top and bottom of the screen. 
+PFont titleFont; //Font for the title screen
+String window = "title"; //Variable to represent what part of the program is running.
+Wave newWave; //Variable to represent the wave.
 
-PImage BG1, BG2, BG3;
+PImage BG1, BG2, BG3; //Variable for the three different images that are the background for the introduction screen. 
 int AniCycle = 1; //for each frame, and resets to one after frame 3
 
-float amplitude;
-float frequency;
-int tension;
-float damping;
-int numBeads;
-String startType;
-String endType;
+float amplitude; //Amplitude of the first ball's oscillation
+float frequency; //Frequency of the first ball's oscillation
+int tension; //Tension of the rope. 
+float damping; //Damping of the rope. 
+int numBeads; //Number of beads on the rope
+String startType; //Start type of the wave
+String endType; //End type of the wave. 
 
 void setup(){
-  numBeads =  50;
-  startType = "Oscillation";
-  endType = "Fixed";
+  numBeads =  50; //Sets the number of beads in the wave at 50. 
+  startType = "Oscillation"; //Sets the start type at oscillation.
+  endType = "Fixed"; //Sets the end type at fixed. 
   
   //Size of the screen & GUI
   size(800,500);
