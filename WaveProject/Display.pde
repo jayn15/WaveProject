@@ -1,5 +1,4 @@
 void displayScreen(){
-  
   if(window.equals("title")){
     frameRate(2.5);
     if (AniCycle == 3){
@@ -22,17 +21,16 @@ void displayScreen(){
     window2.setVisible(false); //Hides the second window that contains all the sliders and buttons
   }
   
-  
+  //Only runs when the program is set into "play"
   if(window.equals("play")){
-    window2.setVisible(true);
-    startButton.setVisible(false);
+    window2.setVisible(true); //Shows the side window with all the slider bars 
+    startButton.setVisible(false); //Hids the start button
     //If statement that allows us to pause the program
-  if(!pause){ //If pause is not true(false).
-    background(255);  // clear the background each frame
-    
-    // Draw all the beads in the wave.
-    newWave.updateWave();
-    newWave.drawWave();
-  }
+    if(!pause){ //If pause is not true(false).
+      background(135, 206, 235);  //clear the background each frame by setting the colour to sky blue.
+      
+      newWave.updateWave(); //Updates all the beads in the wave
+      newWave.drawWave(); // Draw all the beads in the wave.
+    }
   }
 }

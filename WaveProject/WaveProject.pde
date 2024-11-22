@@ -47,17 +47,24 @@ void valueChanging(){
 }
 
 void reset(){
-  //Initializes wave values
-  newWave.amplitude = 100;
-  newWave.frequency = 5;
-  newWave.stringTension = 0;
-  newWave.stringDamping = 0;
   //Sets the slider values
   changeAmp.setValue(100); 
   changeFeq.setValue(5);
   changeTen.setValue(0);
   changeDam.setValue(0);
-  Fixed.setSelected(true);
+  //Initializes wave values
+  newWave.amplitude = changeAmp.getValueF();
+  newWave.frequency = changeFeq.getValueF();
+  newWave.stringTension = changeTen.getValueI();
+  newWave.stringDamping = changeDam.getValueF();
+  
+  //Resets the start type values
+  selectAuto.setSelected(true);
+  newWave.startType = "Oscillation";
+  
+  //Resets the end type values
+  noEnd.setSelected(true);
+  newWave.endType = "No End";
 }
 
 void draw() {
