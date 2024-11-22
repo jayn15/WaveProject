@@ -8,7 +8,6 @@ class Wave{
   int numBeads;
   String startType;
   String endType;
-  float yAcceleration;
 
   //Constructor
   Wave(float a, float f, int t, float d, int b, String s, String e){
@@ -48,16 +47,19 @@ class Wave{
     int i = 0;
     //For-loop that goes through every bead in the wave
     for(Bead b : this.beadWave){ 
+      
       //Copies all past y values into a different array to hold the new "past values"
-      b.pastYValues = b.newYValues;
       
       //Assigning current y value to the first spot in pastYValues. 
-      b.pastYValues[0] = b.beadPos.y;
+      b.newYValues[0] = b.beadPos.y;
       
       //Filling in the rest of the array with the values from the new "past values" array. 
       for(int j = 1; j < b.pastYValues.length - 1; j++){
-        b.pastYValues[j] = b.newYValues[j-1];
+        b.newYValues[j] = b.pastYValues[j-1];
       }
+      
+      b.pastYValues = b.newYValues;
+
       
       
       //Updates each bead based on amplitude, frequency, acceleration and start/end types
@@ -66,18 +68,17 @@ class Wave{
         b.updateBeadPos(this.amplitude, this.frequency, this.startType);  
       }
       //Last bead
-      else if(i == this.beadWave.size()-2){ //The reason it is -2 is because it refers to the second last ball in the string. It is really the last ball that the user can see, but there is an additional ball to facilitate the process for the no end endType. 
+      else if(i == this.beadWave.size()-1){  
         
-          if(this.endType.equals("No End")){
-            followBead(b, this.beadWave.get(i-1));    
-          }
+        if(this.endType.equals("No End")){
+          followBead(b, this.beadWave.get(i-1));    
+        }
         
         b.updateBeadPos(this.amplitude, this.frequency, this.endType); 
         
-
       }
       //All the beads in between
-      else if(i>0 && i<this.beadWave.size()-2){ //Beads in the middle of the string
+      else if(i < this.beadWave.size()-1){ //Beads in the middle of the string
         
         followBead(b, this.beadWave.get(i-1));
 
@@ -89,23 +90,24 @@ class Wave{
   }   
   
   void initializeBeads(){
-    //For loop that repeats once for every bead there is, plus one. 
-    //The reason there is a plus one is for the "No End" endType. 
-    //What this endType does is it pretends there is another ball in line and it calculates the 2nd force of tension that this imaginary ball has on the real end ball.
-    for(int i = 0; i < this.numBeads + 1; i++){
-      this.beadWave.add( new Bead( (width/this.numBeads) * i + (width/(2*this.numBeads)), centerLine, 0) );  
+    //For loop that repeats once for every bead there is. 
+    for(int i = 0; i < this.numBeads; i++){
+      this.beadWave.add( new Bead( (width/this.numBeads) * i + (width/(2*this.numBeads)), centerLine, 0) ); 
     }
+      
   }
-  
-  
+
   void followBead(Bead selected, Bead other){
-    if(other.pastYValues[this.stringTension * 2] < centerLine){ //If previous bead was above the center line
-      selected.beadPos.y = other.pastYValues[this.stringTension] + this.stringDamping;
+    //println(other.pastYValues[60*this.stringTension]);
+    println();
+    
+    if(other.pastYValues[this.stringTension * 60] < centerLine){ //If previous bead was above the center line
+      selected.beadPos.y = other.pastYValues[60*this.stringTension] + this.stringDamping;
     }
-    else if(other.pastYValues[this.stringTension * 2] > centerLine){
-      selected.beadPos.y = other.pastYValues[this.stringTension] - this.stringDamping;      
+    else if(other.pastYValues[this.stringTension * 60] > centerLine){
+      selected.beadPos.y = other.pastYValues[60*this.stringTension] - this.stringDamping;   
     }
   }
-  
-  
 }
+  
+  

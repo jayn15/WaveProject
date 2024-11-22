@@ -2,7 +2,6 @@ import g4p_controls.*;
 
 //Main Code
 boolean pause = false;
-boolean realisticMode = false;
 float xCounter = 0;
 float centerLine;
 PFont titleFont;
@@ -20,7 +19,7 @@ String endType;
 void setup(){
   numBeads =  50;
   startType = "Oscillation";
-  endType = "Fixed";
+  endType = "No End";
   
   //Size of the screen & GUI
   size(800,500);
@@ -42,7 +41,7 @@ void reset(){
   
   newWave.amplitude = 100;
   newWave.frequency = 5;
-  newWave.stringTension = 2;
+  newWave.stringTension = 0;
   newWave.stringDamping = 0;
   
 }
