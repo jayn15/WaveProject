@@ -58,10 +58,17 @@ class Wave{
       else if(i == this.beadWave.size()){  
         
         if(this.endType.equals("No End")){
-          followBead(b, this.beadWave.get(i-1));    
+          followBead(b, this.beadWave.get(i-1)); 
+          b.updateBeadPos(this.amplitude, this.frequency, this.endType);
+        }
+        else if(this.endType.equals("Loose")){
+          print("HI");
+          this.amplitude *= 2;
+          b.updateBeadPos(this.amplitude, this.frequency, this.endType);
+          
         }
         
-        b.updateBeadPos(this.amplitude, this.frequency, this.endType); 
+         
         
       }
       //All the beads in between
@@ -95,9 +102,7 @@ class Wave{
       selected.beadPos.y = other.pastYValues[this.stringTension];
     }
     
-    
-    
-    
+    //If statement that prevents shaking around the centerLine when there is damping. 
     if(selected.beadPos.y < centerLine + 10 && selected.beadPos.y > centerLine - 10 && this.stringDamping != 0){
       selected.beadPos.y = centerLine;
     }
