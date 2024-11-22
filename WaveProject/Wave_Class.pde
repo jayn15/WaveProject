@@ -88,8 +88,8 @@ class Wave{
     if(other.pastYValues[this.stringTension] < centerLine){ //If previous bead was above the center line
       selected.beadPos.y = other.pastYValues[this.stringTension] + this.stringDamping;
     }
-    else if(other.pastYValues[this.stringTension] > centerLine){
-      selected.beadPos.y = other.pastYValues[this.stringTension] - this.stringDamping;   
+    else if(other.pastYValues[this.stringTension] > centerLine){ //If previous bead was below the center line
+      selected.beadPos.y = other.pastYValues[this.stringTension] - this.stringDamping; //Takes a bit off the selected bead 
     }
     else{
       selected.beadPos.y = other.pastYValues[this.stringTension];
