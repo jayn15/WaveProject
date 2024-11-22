@@ -15,6 +15,7 @@
  */
 
 public void start_button(GButton source, GEvent event) { //_CODE_:startButton:707938:
+  frameRate(60);
   valueChanging();
   reset();
 } //_CODE_:startButton:707938:
@@ -62,8 +63,8 @@ public void Manual_clicked(GOption source, GEvent event) { //_CODE_:selectManual
 } //_CODE_:selectManual:273293:
 
 public void resetFunction_click(GButton source, GEvent event) { //_CODE_:resetFunction:296631:
-  valueChanging();
-  //reset();
+  //valueChanging();
+  reset();
   //println("resetFunction - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:resetFunction:296631:
 
@@ -101,7 +102,7 @@ public void createGUI(){
   label5.setOpaque(false);
   label6 = new GLabel(window2, 20, 100, 80, 20);
   label6.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  label6.setText("Fequency");
+  label6.setText("Frequency");
   label6.setOpaque(false);
   label7 = new GLabel(window2, 20, 180, 80, 20);
   label7.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
