@@ -16,6 +16,7 @@
 
 public void start_button(GButton source, GEvent event) { //_CODE_:startButton:707938:
   frameRate(60);
+  playButton.setVisible(false);
   valueChanging();
   reset();
 } //_CODE_:startButton:707938:
@@ -86,6 +87,17 @@ public void selectNoEnd(GOption source, GEvent event) { //_CODE_:noEnd:938131:
   }
 } //_CODE_:noEnd:938131:
 
+public void pause_clicked(GButton source, GEvent event) { //_CODE_:pauseButton:653910:
+  pause = true;
+  pauseButton.setVisible(false);
+  playButton.setVisible(true);
+} //_CODE_:pauseButton:653910:
+
+public void play_clicked(GButton source, GEvent event) { //_CODE_:playButton:389387:
+  pause = false;
+  playButton.setVisible(false);
+  pauseButton.setVisible(true);
+} //_CODE_:playButton:389387:
 
 
 // Create all the GUI controls. 
@@ -129,7 +141,7 @@ public void createGUI(){
   changeFeq.setOpaque(false);
   changeFeq.addEventHandler(this, "fequency_change");
   changeTen = new GCustomSlider(window2, 20, 200, 100, 40, "grey_blue");
-  changeTen.setLimits(0.0, 1.0, 9.0);
+  changeTen.setLimits(0.0, 0.0, 9.0);
   changeTen.setNumberFormat(G4P.DECIMAL, 2);
   changeTen.setOpaque(false);
   changeTen.addEventHandler(this, "tension_change");
@@ -166,7 +178,7 @@ public void createGUI(){
   togGroup2.addControl(selectAuto);
   selectAuto.setSelected(true);
   togGroup2.addControl(selectManual);
-  resetFunction = new GButton(window2, 220, 260, 80, 30);
+  resetFunction = new GButton(window2, 200, 240, 80, 30);
   resetFunction.setText("Reset");
   resetFunction.addEventHandler(this, "resetFunction_click");
   togGroup3 = new GToggleGroup();
@@ -190,6 +202,14 @@ public void createGUI(){
   togGroup3.addControl(Loose);
   togGroup3.addControl(noEnd);
   window2.loop();
+  pauseButton = new GButton(window2, 200, 280, 80, 30);
+  pauseButton.setText("Pause");
+  pauseButton.setLocalColorScheme(GCScheme.RED_SCHEME);
+  pauseButton.addEventHandler(this, "pause_clicked");
+  playButton = new GButton(window2, 200, 280, 80, 30);
+  playButton.setText("Play");
+  playButton.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  playButton.addEventHandler(this, "play_clicked");
 }
 
 // Variable declarations 
@@ -215,3 +235,5 @@ GToggleGroup togGroup3;
 GOption Fixed; 
 GOption Loose; 
 GOption noEnd; 
+GButton pauseButton; 
+GButton playButton; 
