@@ -8,6 +8,9 @@ PFont titleFont;
 Wave newWave;
 String window = "title";
 
+PImage BG1, BG2, BG3;
+int AniCycle = 1; //for each frame, and resets to one after frame 3
+
 float amplitude;
 float frequency;
 int tension;
@@ -26,6 +29,15 @@ void setup(){
   frameRate(60);
   createGUI();
   centerLine = height/2;
+  
+  BG1 = loadImage("Images/Wave1.jpg");
+  BG1.resize(width, height);
+  
+  BG2 = loadImage("Images/Wave2.jpg");
+  BG2.resize(width, height);
+  
+  BG3 = loadImage("Images/Wave3.jpg");
+  BG3.resize(width, height);
 }
 
 void valueChanging(){
