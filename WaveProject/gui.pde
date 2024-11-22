@@ -67,6 +67,7 @@ public void selectFixed(GOption source, GEvent event) { //_CODE_:Fixed:897153:
 
 public void selectLoose(GOption source, GEvent event) { //_CODE_:Loose:524193:
   newWave.endType = "Loose";
+  newWave.amplitude *= 2;
 } //_CODE_:Loose:524193:
 
 public void selectNoEnd(GOption source, GEvent event) { //_CODE_:noEnd:938131:
