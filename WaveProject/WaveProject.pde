@@ -44,6 +44,13 @@ void reset(){
   newWave.frequency = 5;
   newWave.stringTension = 2;
   newWave.stringDamping = 0;
+  changeAmp.setValue(100);
+  changeFeq.setValue(5);
+  changeTen.setValue(2);
+  changeDam.setValue(0);
+  //Normal_clicked(true);
+  Fixed.setSelected(true);
+  
   
 }
 
