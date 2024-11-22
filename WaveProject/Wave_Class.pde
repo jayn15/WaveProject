@@ -64,7 +64,7 @@ class Wave{
           //Nothing happens because it is already taken care of in the gui builder. 
         }
         else if(this.endType.equals("Fixed")){
-          //b.beadPos.y = centerLine;
+          b.beadPos.y = fixedValue;
         }
       }
       //All the beads in between
