@@ -22,7 +22,7 @@ String endType;
 void setup(){
   numBeads =  50;
   startType = "Oscillation";
-  endType = "No End";
+  endType = "Fixed";
   
   //Size of the screen & GUI
   size(800,500);

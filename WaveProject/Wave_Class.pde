@@ -54,18 +54,15 @@ class Wave{
       if(i == 0){
         b.updateBeadPos(this.amplitude, this.frequency, this.startType);  
       }
+      
       //Last bead
-      else if(i == this.beadWave.size()){  
-        
+      else if(i == this.beadWave.size()-1){     
         if(this.endType.equals("No End")){
           followBead(b, this.beadWave.get(i-1)); 
           b.updateBeadPos(this.amplitude, this.frequency, this.endType);
         }
         else if(this.endType.equals("Loose")){
-          print("HI");
-          this.amplitude *= 2;
-          b.updateBeadPos(this.amplitude, this.frequency, this.endType);
-          
+          b.updateBeadPos(this.amplitude, this.frequency, this.endType);  
         }
         
          
