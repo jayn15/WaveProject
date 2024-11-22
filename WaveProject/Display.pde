@@ -1,7 +1,19 @@
 void displayScreen(){
   
   if(window.equals("title")){
-  background(200,240,255);
+  frameRate(2);
+  if (AniCycle == 3){
+    background(BG3); //frame 3
+    AniCycle = 1;
+  }
+  else if (AniCycle == 2){
+    background(BG2); //frame 2
+    AniCycle += 1;
+  }
+  else {
+    background(BG1); //frame 1
+    AniCycle += 1;
+  }
   titleFont = loadFont("Candara-LightItalic-60.vlw");
   textFont(titleFont);
   fill(50,70,100);
