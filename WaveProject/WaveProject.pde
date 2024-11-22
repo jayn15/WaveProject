@@ -2,6 +2,7 @@ import g4p_controls.*;
 
 //Main Code
 boolean pause = false;
+boolean amplitudeCounter = false;
 float xCounter = 0;
 float centerLine;
 PFont titleFont;

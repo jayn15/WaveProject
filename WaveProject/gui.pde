@@ -63,15 +63,26 @@ public void resetFunction_click(GButton source, GEvent event) { //_CODE_:resetFu
 
 public void selectFixed(GOption source, GEvent event) { //_CODE_:Fixed:897153:
   newWave.endType = "Fixed";
+  if(amplitudeCounter){
+    amplitudeCounter = false;
+    newWave.amplitude /= 2;
+  }
 } //_CODE_:Fixed:897153:
 
 public void selectLoose(GOption source, GEvent event) { //_CODE_:Loose:524193:
   newWave.endType = "Loose";
-  newWave.amplitude *= 2;
+  if(!amplitudeCounter){
+    newWave.amplitude *= 2;
+    amplitudeCounter = true;
+  }
 } //_CODE_:Loose:524193:
 
 public void selectNoEnd(GOption source, GEvent event) { //_CODE_:noEnd:938131:
   newWave.endType = "No End";
+  if(amplitudeCounter){
+    amplitudeCounter = false;
+    newWave.amplitude /= 2;
+  }
 } //_CODE_:noEnd:938131:
 
 
