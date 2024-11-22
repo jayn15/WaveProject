@@ -50,7 +50,7 @@ void reset(){
   //Sets the slider values
   changeAmp.setValue(100); 
   changeFeq.setValue(5);
-  changeTen.setValue(0);
+  changeTen.setValue(5);
   changeDam.setValue(0);
   //Initializes wave values
   newWave.amplitude = changeAmp.getValueF();
