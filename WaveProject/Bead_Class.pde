@@ -39,27 +39,5 @@ class Bead{
       this.beadPos.y = a * sin(0.05*f * xCounter) + centerLine;
       
     }
-    else if(ends == "Pulse"){
-      
-    }
-    else if(ends == "Manuel"){
-      
-    }
-    
-    //If statements for if the selected bead is the last bead
-    else if(ends == "Fixed"){
-      //Nothing happens because the end bead is in a fixed position and does not require an update. 
-    }
-    else if(ends == "Loose"){ 
-      
-      
-    }
-    
-    else{ //Every other bead in the middle of the string, also applies to no end type because it acts like a bead in the middle of the string
-      //X value stays the same
-      //Change the y value
-             
-        }
-        
-      }
-    }
+  }
+}
