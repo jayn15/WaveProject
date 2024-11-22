@@ -60,7 +60,8 @@ void reset(){
   changeFeq.setValue(5);
   changeTen.setValue(0);
   changeDam.setValue(0);
-  //Normal_clicked(true);
+  speedNorm.setSelected(true);
+  selectAuto.setSelected(true);
   Fixed.setSelected(true);
   
   
