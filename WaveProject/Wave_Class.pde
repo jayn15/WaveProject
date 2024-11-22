@@ -94,6 +94,15 @@ class Wave{
     else{
       selected.beadPos.y = other.pastYValues[this.stringTension];
     }
+    
+    
+    
+    
+    if(selected.beadPos.y < centerLine + 10 && selected.beadPos.y > centerLine - 10 && this.stringDamping != 0){
+      selected.beadPos.y = centerLine;
+    }
+    
+    
   }
   
   void updatePastBeadArray(Bead selected){
