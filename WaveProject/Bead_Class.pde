@@ -12,7 +12,7 @@ class Bead{
       this.beadPos = new PVector(x, y);
       this.radius = 10; //Sets the radius for every bead to 25. 
       this.beadCol = c;
-      this.maxRemVals = 10;
+      this.maxRemVals = 11;
       this.pastYValues = new float[maxRemVals];
       this.newYValues = new float[maxRemVals];
       
