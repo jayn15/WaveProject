@@ -50,15 +50,14 @@ public void Slow_clicked(GOption source, GEvent event) { //_CODE_:speedSlow:5007
 } //_CODE_:speedSlow:500740:
 
 public void Auto_clicked(GOption source, GEvent event) { //_CODE_:selectAuto:691945:
-  
+  newWave.startType = "Oscillation";
 } //_CODE_:selectAuto:691945:
 
 public void Manual_clicked(GOption source, GEvent event) { //_CODE_:selectManual:273293:
-  //println("selectManual - GOption >> GEvent." + event + " @ " + millis());
+  newWave.startType = "Manual";
 } //_CODE_:selectManual:273293:
 
 public void resetFunction_click(GButton source, GEvent event) { //_CODE_:resetFunction:296631:
-  //valueChanging();
   reset();
 } //_CODE_:resetFunction:296631:
 
@@ -140,7 +139,7 @@ public void createGUI(){
   changeFeq.setOpaque(false);
   changeFeq.addEventHandler(this, "fequency_change");
   changeTen = new GCustomSlider(window2, 20, 200, 100, 40, "grey_blue");
-  changeTen.setLimits(0.0, 0.0, 9.0);
+  changeTen.setLimits(0.0, 0.0, 10.0);
   changeTen.setNumberFormat(G4P.DECIMAL, 2);
   changeTen.setOpaque(false);
   changeTen.addEventHandler(this, "tension_change");

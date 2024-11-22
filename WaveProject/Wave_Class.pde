@@ -27,14 +27,12 @@ class Wave{
       //For-loop that goes through every bead in the wave
       int i = 0;
       for(Bead b : this.beadWave){
-          //Draws each bead except the last ghost bead which is discussed in further depth in initializeBeads()
-          if(i < this.beadWave.size()-1){
+          if(i < this.beadWave.size()){
             b.drawBead();
           }
           
           //Draws lines between beads
-          //The reason it is this.beadWave.size() - 2 is because there is a subtraction for the out of bounds index error, but there is also a subtraction so that there isn't a tail of line poking out from the last ball. 
-          if(i < this.beadWave.size()-2){
+          if(i < this.beadWave.size()-1){
             stroke(255, 0, 0);
             line(b.beadPos.x, b.beadPos.y, this.beadWave.get(i+1).beadPos.x, this.beadWave.get(i+1).beadPos.y);
           }
@@ -61,10 +59,10 @@ class Wave{
           followBead(b, this.beadWave.get(i-1));
         }
         else if(this.endType.equals("Loose")){
-          //Nothing happens because it is already taken care of in the gui builder. 
+          followBead(b, this.beadWave.get(i-1));          
         }
         else if(this.endType.equals("Fixed")){
-          //b.beadPos.y = centerLine;
+          //Nothing happens because there is no need to update the bead as it stays in one fixed position
         }
       }
       //All the beads in between
