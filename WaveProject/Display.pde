@@ -1,7 +1,7 @@
 void displayScreen(){
   
   if(window.equals("title")){
-  frameRate(2);
+  frameRate(2.5);
   if (AniCycle == 3){
     background(BG3); //frame 3
     AniCycle = 1;
