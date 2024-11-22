@@ -26,46 +26,41 @@ void setup(){
   endType = "Fixed"; //Sets the end type at fixed. 
   
   //Size of the screen & GUI
-  size(800,500);
-  frameRate(60);
-  createGUI();
-  centerLine = height/2;
+  size(800,500); //Sets the size of the main scree
+  createGUI(); //Creates the GUI
+  centerLine = height/2; //Sets the value of center line to halfway between the top and bottom of the screen.
   
-  BG1 = loadImage("Images/Wave1.jpg");
-  BG1.resize(width, height);
+  BG1 = loadImage("Images/Wave1.jpg"); //Loads the first of the three images that make up the intro screen gif.
+  BG1.resize(width, height); //Resizes that image to fit the screen
   
-  BG2 = loadImage("Images/Wave2.jpg");
+  BG2 = loadImage("Images/Wave2.jpg"); //Second image
   BG2.resize(width, height);
   
-  BG3 = loadImage("Images/Wave3.jpg");
+  BG3 = loadImage("Images/Wave3.jpg"); //Third image
   BG3.resize(width, height);
 }
 
 void valueChanging(){
-  newWave = new Wave(amplitude, frequency, tension, damping, numBeads, startType, endType);
-  newWave.initializeBeads();
-  window = "play";
+  newWave = new Wave(amplitude, frequency, tension, damping, numBeads, startType, endType); //Creates the wave
+  newWave.initializeBeads(); //Initializes the beads
+  window = "play"; 
 }
 
 void reset(){
-  //this works, but find out how to make bar also equal its original values
-  //also what the hell happened to the beads when freq is all left??
-  //is freq min = 0? prob change that lol
-  
+  //Initializes wave values
   newWave.amplitude = 100;
   newWave.frequency = 5;
   newWave.stringTension = 0;
   newWave.stringDamping = 0;
-  changeAmp.setValue(100);
+  //Sets the slider values
+  changeAmp.setValue(100); 
   changeFeq.setValue(5);
   changeTen.setValue(0);
   changeDam.setValue(0);
-  //Normal_clicked(true);
   Fixed.setSelected(true);
-  
-  
 }
 
 void draw() {
+  //Calls the display screen function
   displayScreen();
 }

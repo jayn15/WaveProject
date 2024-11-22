@@ -5,7 +5,7 @@ class Bead{
   int radius;
   float[] pastYValues;
   float[] newYValues;
-  int maxRemVals;
+  int maxRemVals; //This is the 
 
   //Constructor
   Bead(float x, float y, color c){
