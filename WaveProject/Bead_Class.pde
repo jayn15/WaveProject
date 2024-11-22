@@ -37,7 +37,9 @@ class Bead{
     //If statements for if the selected bead is the first bead
     if(ends == "Oscillation"){
       this.beadPos.y = a * sin(0.05*f * xCounter) + centerLine;
-      
+    }
+    else if(ends == "Manual"){
+      this.beadPos.y = mouseY; 
     }
   }
 }

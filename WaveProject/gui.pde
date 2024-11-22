@@ -50,11 +50,11 @@ public void Slow_clicked(GOption source, GEvent event) { //_CODE_:speedSlow:5007
 } //_CODE_:speedSlow:500740:
 
 public void Auto_clicked(GOption source, GEvent event) { //_CODE_:selectAuto:691945:
-  
+  newWave.startType = "Oscillation";
 } //_CODE_:selectAuto:691945:
 
 public void Manual_clicked(GOption source, GEvent event) { //_CODE_:selectManual:273293:
-  //println("selectManual - GOption >> GEvent." + event + " @ " + millis());
+  newWave.startType = "Manual";
 } //_CODE_:selectManual:273293:
 
 public void resetFunction_click(GButton source, GEvent event) { //_CODE_:resetFunction:296631:
