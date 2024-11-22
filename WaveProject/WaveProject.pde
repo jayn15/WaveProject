@@ -65,6 +65,9 @@ void reset(){
   //Resets the end type values
   noEnd.setSelected(true);
   newWave.endType = "No End";
+  
+  speedNorm.setSelected(true);
+  frameRate(60);
 }
 
 void draw() {

@@ -119,7 +119,4 @@ class Wave{
       selected.pastYValues[i] = selected.newYValues[i];
     }
   }
-}
-  
-  
-  
+} 
