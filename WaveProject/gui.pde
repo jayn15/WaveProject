@@ -26,36 +26,30 @@ synchronized public void win_draw2(PApplet appc, GWinData data) { //_CODE_:windo
 
 public void amplitude_change(GCustomSlider source, GEvent event) { //_CODE_:changeAmp:771614:
   newWave.amplitude = changeAmp.getValueI();
-  //println("changeAmp - GCustomSlider >> GEvent." + event + " @ " + millis());
 } //_CODE_:changeAmp:771614:
 
 public void fequency_change(GCustomSlider source, GEvent event) { //_CODE_:changeFeq:283032:
   newWave.frequency = changeFeq.getValueF();
-  //println("changeFeq - GCustomSlider >> GEvent." + event + " @ " + millis());
 } //_CODE_:changeFeq:283032:
 
 public void tension_change(GCustomSlider source, GEvent event) { //_CODE_:changeTen:235273:
   newWave.stringTension = changeTen.getValueI();
-  //println("changeTen - GCustomSlider >> GEvent." + event + " @ " + millis());
 } //_CODE_:changeTen:235273:
 
 public void damping_change(GCustomSlider source, GEvent event) { //_CODE_:changeDam:585003:
   newWave.stringDamping = changeDam.getValueI();
-  //println("changeDam - GCustomSlider >> GEvent." + event + " @ " + millis());
 } //_CODE_:changeDam:585003:
 
 public void Normal_clicked(GOption source, GEvent event) { //_CODE_:speedNorm:317794:
   frameRate(60);
-  //println("speedNorm - GOption >> GEvent." + event + " @ " + millis());
 } //_CODE_:speedNorm:317794:
 
 public void Slow_clicked(GOption source, GEvent event) { //_CODE_:speedSlow:500740:
   frameRate(15);
-  //println("speedSlow - GOption >> GEvent." + event + " @ " + millis());
 } //_CODE_:speedSlow:500740:
 
 public void Auto_clicked(GOption source, GEvent event) { //_CODE_:selectAuto:691945:
-  //println("selectAuto - GOption >> GEvent." + event + " @ " + millis());
+  
 } //_CODE_:selectAuto:691945:
 
 public void Manual_clicked(GOption source, GEvent event) { //_CODE_:selectManual:273293:
@@ -65,19 +59,30 @@ public void Manual_clicked(GOption source, GEvent event) { //_CODE_:selectManual
 public void resetFunction_click(GButton source, GEvent event) { //_CODE_:resetFunction:296631:
   //valueChanging();
   reset();
-  //println("resetFunction - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:resetFunction:296631:
 
 public void selectFixed(GOption source, GEvent event) { //_CODE_:Fixed:897153:
   newWave.endType = "Fixed";
+  if(amplitudeCounter){
+    amplitudeCounter = false;
+    newWave.amplitude /= 2;
+  }
 } //_CODE_:Fixed:897153:
 
 public void selectLoose(GOption source, GEvent event) { //_CODE_:Loose:524193:
   newWave.endType = "Loose";
+  if(!amplitudeCounter){
+    newWave.amplitude *= 2;
+    amplitudeCounter = true;
+  }
 } //_CODE_:Loose:524193:
 
 public void selectNoEnd(GOption source, GEvent event) { //_CODE_:noEnd:938131:
   newWave.endType = "No End";
+  if(amplitudeCounter){
+    amplitudeCounter = false;
+    newWave.amplitude /= 2;
+  }
 } //_CODE_:noEnd:938131:
 
 

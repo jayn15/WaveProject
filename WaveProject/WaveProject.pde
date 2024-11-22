@@ -2,6 +2,7 @@ import g4p_controls.*;
 
 //Main Code
 boolean pause = false;
+boolean amplitudeCounter = false;
 float xCounter = 0;
 float centerLine;
 PFont titleFont;
@@ -22,7 +23,7 @@ String endType;
 void setup(){
   numBeads =  50;
   startType = "Oscillation";
-  endType = "No End";
+  endType = "Fixed";
   
   //Size of the screen & GUI
   size(800,500);

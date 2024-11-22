@@ -46,29 +46,30 @@ class Wave{
   void updateWave(){
     int i = 0;
     //For-loop that goes through every bead in the wave
-    for(Bead b : this.beadWave){       
+    for(Bead b : this.beadWave){ 
       updatePastBeadArray(b);
-      
+    
       //Updates each bead based on amplitude, frequency and start/end types
       //First bead
       if(i == 0){
         b.updateBeadPos(this.amplitude, this.frequency, this.startType);  
       }
+      
       //Last bead
-      else if(i == this.beadWave.size()){  
-        
+      else if(i == this.beadWave.size()-1){     
         if(this.endType.equals("No End")){
-          followBead(b, this.beadWave.get(i-1));    
+          followBead(b, this.beadWave.get(i-1));
         }
-        
-        b.updateBeadPos(this.amplitude, this.frequency, this.endType); 
-        
+        else if(this.endType.equals("Loose")){
+          //Nothing happens because it is already taken care of in the gui builder. 
+        }
+        else if(this.endType.equals("Fixed")){
+          //b.beadPos.y = centerLine;
+        }
       }
       //All the beads in between
-      else if(i < this.beadWave.size()){ //Beads in the middle of the string
-        
+      else if(i < this.beadWave.size()-1){ //Beads in the middle of the string
         followBead(b, this.beadWave.get(i-1));
-
         b.updateBeadPos(this.amplitude, this.frequency, "Middle Bead");  
       }
       xCounter += 0.01;
@@ -95,9 +96,7 @@ class Wave{
       selected.beadPos.y = other.pastYValues[this.stringTension];
     }
     
-    
-    
-    
+    //If statement that prevents shaking around the centerLine when there is damping. 
     if(selected.beadPos.y < centerLine + 10 && selected.beadPos.y > centerLine - 10 && this.stringDamping != 0){
       selected.beadPos.y = centerLine;
     }
