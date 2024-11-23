@@ -66,6 +66,12 @@ class Wave{
         }
         else if(this.endType.equals("Fixed")){
           //Nothing happens because there is no need to update the bead as it stays in one fixed position
+          //Puts the last bead on the center line
+          b.beadPos.y = centerLine;
+          //Increases damping because the stationary bead prevents the wave from reaching its maximum
+          if(this.stringDamping == 0){
+            this.stringDamping = 0.5;
+          }
         }
       }
       //All the beads in between
@@ -89,10 +95,10 @@ class Wave{
 
   void followBead(Bead selected, Bead other){
     //Calculates the selected bead position using the previous y values of the bead before it
-    if(other.pastYValues[10-this.stringTension] < centerLine){ //If previous bead was above the center line
+    if(other.pastYValues[10-this.stringTension] < centerLine){ //If both the previous bead and the current bead are above the center line
       selected.beadPos.y = other.pastYValues[10-this.stringTension] + this.stringDamping; //Add the damping
     }
-    else if(other.pastYValues[10-this.stringTension] > centerLine){ //If previous bead was below the center line
+    else if(other.pastYValues[10-this.stringTension] > centerLine){ //If previous bead and the current bead are below the center line
       selected.beadPos.y = other.pastYValues[10-this.stringTension] - this.stringDamping; //Takes a bit off the selected bead 
     }
     else{
@@ -100,9 +106,10 @@ class Wave{
     }
     
     //If statement that prevents shaking around the centerLine when there is damping. 
-    if(selected.beadPos.y < centerLine + 10 && selected.beadPos.y > centerLine - 10 && this.stringDamping != 0){
+    if(selected.beadPos.y < centerLine + 5 && selected.beadPos.y > centerLine - 5 && this.stringDamping != 0){
       selected.beadPos.y = centerLine; 
     }
+    //println(selected.beadPos.y);
   }
   
   void updatePastBeadArray(Bead selected){
