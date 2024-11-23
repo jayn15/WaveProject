@@ -17,7 +17,7 @@ void displayScreen(){
     textFont(titleFont); //Sets the text font
     fill(50,70,100); //Sets the text colour
     textAlign(CENTER); //Sets the text alignment
-    text("Wave Simulator!", width/2, height-(height-200)); //Draws the title
+    text("The Wave Simulator!", width/2, height-(height-200)); //Draws the title
     window2.setVisible(false); //Hides the second window that contains all the sliders and buttons
   }
   
