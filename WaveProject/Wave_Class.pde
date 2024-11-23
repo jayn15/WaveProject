@@ -95,10 +95,10 @@ class Wave{
 
   void followBead(Bead selected, Bead other){
     //Calculates the selected bead position using the previous y values of the bead before it
-    if(other.pastYValues[10-this.stringTension] < centerLine){ //If both the previous bead and the current bead are above the center line
+    if(other.pastYValues[10-this.stringTension] < centerLine-5){ //If both the previous bead and the current bead are above the center line
       selected.beadPos.y = other.pastYValues[10-this.stringTension] + this.stringDamping; //Add the damping
     }
-    else if(other.pastYValues[10-this.stringTension] > centerLine){ //If previous bead and the current bead are below the center line
+    else if(other.pastYValues[10-this.stringTension] > centerLine+5){ //If previous bead and the current bead are below the center line
       selected.beadPos.y = other.pastYValues[10-this.stringTension] - this.stringDamping; //Takes a bit off the selected bead 
     }
     else{
